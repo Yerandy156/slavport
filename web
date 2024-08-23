@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlAVS PORTFOLIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 100%;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        header {
+            background: #000;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #fff 3px solid;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fafafa, 0 0 35px #fafafa, 0 0 40px #fafafa, 0 0 50px #fafafa, 0 0 75px #fafafa;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fafafa, 0 0 70px #fafafa, 0 0 80px #fafafa, 0 0 100px #fafafa, 0 0 150px #fafafa;
+            }
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        section {
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        h2 {
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #000, #333);
+            z-index: -1;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #000;
+            color: #fff;
+            box-shadow: 0 0 10px #fff;
+        }
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .line-h {
+            height: 1px;
+            width: 100%;
+            animation: moveHorizontal 15s linear infinite;
+        }
+        .line-v {
+            width: 1px;
+            height: 100%;
+            animation: moveVertical 20s linear infinite;
+        }
+        @keyframes moveHorizontal {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        @keyframes moveVertical {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="line line-h"></div>
+    <div class="line line-v"></div>
+    <header>
+        <div class="container">
+            <h1>Slav's Portfolio</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Yo Sup Niggas welcome to my Portfolio nothing much but I am starting to publish my shit later on!</p>
+        </section>
+
+        <section id="work">
+            <h2>My Work</h2>
+            <div class="gallery">
+                <img src="https://media.tenor.com/TryI1l0C6wQAAAAC/nothing.gif">
+                <img src="https://media.tenor.com/TryI1l0C6wQAAAAC/nothing.gif" alt="Work 2">
+                <img src="https://media.tenor.com/TryI1l0C6wQAAAAC/nothing.gif" alt="Work 3">
+                <img src="https://media.tenor.com/TryI1l0C6wQAAAAC/nothing.gif" alt="Work 4">
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p>Wanna E-Sex come contact me!</p>
+            <a href="mailto:yerandyty@gmail.com" class="btn">Contact Me</a>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            let trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            
+            setTimeout(() => {
+                trail.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(trail);
+                }, 500);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
